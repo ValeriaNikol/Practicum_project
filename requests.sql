@@ -1,9 +1,9 @@
 SELECT с.login,
-       o."inDelivery"
-FROM “Couriers” AS c
-INNER JOIN “Orders” AS o ON c.id=o."courierId"
-WHERE o."inDelivery" = true;
-
+    COUNT(o.track)
+FROM "Couriers" AS c
+INNER JOIN "Orders" AS o ON c.id=o."courierId"
+WHERE o."inDelivery" = true
+GROUP BY login; 
 
 SELECT track,
     CASE
